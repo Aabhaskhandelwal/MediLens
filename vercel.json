@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "other",
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "server/**/*.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/server/index.ts",
+      "methods": ["GET", "POST", "PATCH", "DELETE", "PUT", "OPTIONS"]
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/dist/index.html",
+      "status": 200
+    }
+  ]
+}
